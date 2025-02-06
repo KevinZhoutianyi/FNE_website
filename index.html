@@ -146,10 +146,8 @@
     <p>As discussed in our pervious work [<a href="https://arxiv.org/pdf/2406.03445">Tianyi et al. (NeurIPS 2024)</a>], 
       LLMs naturally learn Fourier Features during pre-training. With these Fourier features, models are able to perform arithmetic with perfect accuracy. 
       However, due to the limitation of tokenization, LLMs can only embed numbers up to 520.
-      In this paper, we propose a novel approach called Fourier Number Embedding (FNE), which di-
-rectly maps numbers into their Fourier representations, bypassing the tokenization step entirely. By
-representing each digit using cosine and sine functions with different periods, FNE
-ensures precise representation of numbers
+      <br>
+      Below, we provide a simplified illustration of how pre-trained LLMs embed numbers and how this leads to Fourier Number Embedding (FNE).
     </p>
     <figure>
       <img src="./figs/animated_fig2.gif" alt="Project animation" class="img-fluid">
