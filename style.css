@@ -1,0 +1,131 @@
+body { 
+    font-family: 'Open Sans', sans-serif; 
+    background-color: #f8f9fa; 
+  }
+  
+  .container { 
+    max-width: 1500px;
+    width: 96%;
+    padding: 30px;
+    background: white; 
+    border-radius: 8px; 
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+  }
+  
+  header { 
+    padding-bottom: 4px; 
+    border-bottom: 2px solid #ddd; 
+    margin-bottom: 10px;
+  }
+  
+  h1, h2 { 
+    color: #333; 
+  }
+  
+  .intro-text {
+    text-align: center; 
+    font-size: 18px; 
+    font-weight: 500; 
+    line-height: 1.6;
+  }
+  
+  figure {
+    text-align: center;
+  }
+  
+  img.figure { 
+    width: 80%;
+    max-width: 500px;
+    display: block; 
+    margin: 0 auto;
+  }
+  
+  .section { 
+    padding: 20px 0; 
+  }
+  
+  footer { 
+    margin-top: 20px; 
+    padding: 10px; 
+    background: #333; 
+    color: white; 
+    text-align: center; 
+    border-radius: 8px; 
+  }
+  .icon-container {
+    text-align: center; /* Center icons under the title */
+    margin-top: 10px;
+  }
+  
+  .icon.github {
+    width: 180px;  /* Narrower GitHub icon */
+    height: 60px;
+    margin-right: 20px; /* Adds space to the right */
+  }
+  
+  .icon.arxiv {
+    width: 140px; /* Wider ArXiv icon */
+    height: 60px;
+    margin-left: 20px; /* Adds space to the left */
+  }
+  
+  .icon {
+    margin: 0 10px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .icon:hover {
+    transform: scale(1.2);
+  }
+  
+  .figure-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .figure-container figure {
+    text-align: center;
+  }
+  .section {
+    padding: 20px 0; /* Increased vertical spacing before sections */
+  }
+  .full-width {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    width: 100%;
+  }
+  
+  .full-width figure {
+    width: 48%; /* Stretch to take more space */
+  }
+  
+  .full-width figure img {
+    width: 100%;
+    max-width: 1000px; /* Increase max width for better visibility */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Smaller images for the second and third row */
+  .figure-container:nth-of-type(n+2) figure {
+    width: 22%; /* Four images per row */
+  }
+  
+  .figure-container figure img {
+    width: 100%;
+    max-width: 620px; /* Keep other images smaller */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .fig-caption {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  

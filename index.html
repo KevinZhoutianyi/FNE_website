@@ -16,61 +16,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-<style>
-  body { 
-    font-family: 'Open Sans', sans-serif; 
-    background-color: #f8f9fa; 
-  }
-
-  .container { 
-    max-width: 1500px;
-    width: 96%;
-    padding: 30px;
-    background: white; 
-    border-radius: 8px; 
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
-  }
-
-  header { 
-    padding-bottom: 4px; 
-    border-bottom: 2px solid #ddd; 
-    margin-bottom: 10px;
-  }
-
-  h1, h2 { 
-    color: #333; 
-  }
-  
-  figure {
-    text-align: center;
-  }
-
-  img.figure { 
-    width: 80%;
-    max-width: 500px;
-    display: block; 
-    margin: 0 auto;
-  }
-
-  .section { 
-    padding: 20px 0; 
-  }
-
-  footer { 
-    margin-top: 20px; 
-    padding: 10px; 
-    background: #333; 
-    color: white; 
-    text-align: center; 
-    border-radius: 8px; 
-  }
-</style>
+<link rel="stylesheet" href="style.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <div class="container">
+  
   <header class="text-center">
     <h1>FNE: Precise Single-Token Number Embeddings via Fourier Features</h1>
+
+  
     <p><b>Tianyi Zhou, Deqing Fu, Mahdi Soltanolkotabi, Robin Jia, Vatsal Sharan</b><br>
       <a href="mailto:tzhou029@usc.edu">tzhou029@usc.edu</a>, 
       <a href="mailto:deqingfu@usc.edu">deqingfu@usc.edu</a>, 
@@ -78,17 +33,28 @@
       <a href="mailto:robinjia@usc.edu">robinjia@usc.edu</a>, 
       <a href="mailto:vsharan@usc.edu">vsharan@usc.edu</a>
     </p>
+
+        
+    <div class="icon-container">
+      <a href="https://github.com/KevinZhoutianyi/FNE" target="_blank">
+        <img src="./figs/Github_logo_PNG8.png" alt="GitHub" class="icon github">
+      </a>
+      <a href="https://arxiv.org/abs/your-paper-id" target="_blank">
+        <img src="./figs/ArXiv_logo_2022.svg" alt="Paper" class="icon arxiv">
+      </a>
+    </div>
   </header>
+  
 
   <section id="about">
-    <p style="text-align: center; font-size: 18px; font-weight: 500; line-height: 1.6;">
+    <p class="intro-text">
         Fourier Number Embedding (FNE) <br>
         directly maps numbers into their Fourier representations, bypassing the tokenization step entirely<br>
         <strong>with Better Efficiency and Accuracy.</strong>
     </p>
     
     <figure>
-        <img src="./figs/animated_fig.gif" alt="Project animation" class="img-fluid" style="width: 90%;">
+        <img src="./figs/animated_fig.gif" alt="Project animation" class="img-fluid">
       <figcaption>
         (a) Extract all numbers from the input. <br>
         (b) Use FNE to map each number to its embedding; the first two entries represent 18 mod 10, the next two 18 mod 100. <br>
@@ -97,27 +63,98 @@
       </figcaption>
     </figure>
   </section>
+  <section id="results" class="section">
+    <h2>Empirical Results</h2>
+    <hr>
+    <p>We train Llama-3.2-1B from scratch with different number embedding methods and evaluate its performance on various arithmetic tasks. 
+      Our <strong>Fourier Number Embedding (FNE)</strong> method demonstrates significant improvements in both <strong>data efficiency</strong> and <strong>parameter efficiency</strong>, 
+      achieving <strong>99% accuracy with 64× less data</strong> compared to traditional embeddings. It also outperforms fine-tuned Llama-3.2 models and achieves perfect accuracy.</p>
+      
+    <p class="fig-caption">
+      <strong>Figure:</strong> Comparison of accuracy trends for various arithmetic tasks with respect to model size and data size.
+    </p>
   
+    <!-- Enlarged Decimal Addition Figures -->
+    <div class="figure-container full-width">
+      <figure>
+        <img src="./figs/adddecimaldataacc (1).png" alt="Decimal Addition Data Accuracy" class="figure-img">
+        <figcaption>6-digit Decimal Addition: Model & Data size vs. Accuracy</figcaption>
+      </figure>
+      <figure>
+        <img src="./figs/adddecimalmodelacc (1).png" alt="Decimal Addition Model Accuracy" class="figure-img">
+        <figcaption>6-digit Decimal Addition: Model & Data size vs. Accuracy</figcaption>
+      </figure>
+    </div>
+  
+    <!-- Integer Addition & Subtraction (Row 1) -->
+    <div class="figure-container">
+      <figure>
+        <img src="./figs/add2dataacc_small (1).png" alt="6-digit Integer Addition Data Accuracy" class="figure-img">
+        <figcaption>6-digit Integer Addition: Model & Data size vs. Accuracy</figcaption>
+      </figure>
+      <figure>
+        <img src="./figs/add2modelacc_small (1).png" alt="6-digit Integer Addition Model Accuracy" class="figure-img">
+        <figcaption>6-digit Integer Addition: Model & Data size vs. Accuracy</figcaption>
+      </figure>
+      <figure>
+        <img src="./figs/sub1dataacc_small (1).png" alt="5-digit Integer Subtraction Data Accuracy" class="figure-img">
+        <figcaption>5-digit Integer Subtraction: Model & Data size vs. Accuracy</figcaption>
+      </figure>
+      <figure>
+        <img src="./figs/sub1modelacc_small (1).png" alt="5-digit Integer Subtraction Model Accuracy" class="figure-img">
+        <figcaption>5-digit Integer Subtraction: Model & Data size vs. Accuracy</figcaption>
+      </figure>
+    </div>
+  
+    <!-- Multiplication 1 & 2 (Row 2) -->
+    <div class="figure-container">
+      <figure>
+        <img src="./figs/mul1dataacc_small (1).png" alt="3-digit Integer Multiplication Data Accuracy" class="figure-img">
+        <figcaption>3-digit Integer Multiplication: Model & Data size vs. Accuracy</figcaption>
+      </figure>
+      <figure>
+        <img src="./figs/mul1modelacc_small (1).png" alt="3-digit Integer Multiplication Model Accuracy" class="figure-img">
+        <figcaption>3-digit Integer Multiplication: Model & Data size vs. Accuracy</figcaption>
+      </figure>
+      <figure>
+        <img src="./figs/mul2dataacc_small (1).png" alt="4-digit Integer Multiplication Data Accuracy" class="figure-img">
+        <figcaption>4-digit Integer Multiplication: Model & Data size vs. Accuracy</figcaption>
+      </figure>
+      <figure>
+        <img src="./figs/mul2modelacc_small (1).png" alt="4-digit Integer Multiplication Model Accuracy" class="figure-img">
+        <figcaption>4-digit Integer Multiplication: Model & Data size vs. Accuracy</figcaption>
+      </figure>
+    </div>
+  
+  
+  </section>
+  
+
   <section id="design" class="section">
     <h2>Why Design Like This?</h2>
-    <p>FNE leverages Fourier-based number embeddings to efficiently encode numerical information directly into a continuous representation. By avoiding tokenization, FNE achieves:</p>
+    <hr>
+    <p>As discussed in our pervious work [<a href="https://arxiv.org/pdf/2406.03445">Tianyi et al. (NeurIPS 2024)</a>], 
+      LLMs naturally learn Fourier Features during pre-training. With these Fourier features, models are able to perform arithmetic with perfect accuracy. However, due to the limitation of tokenization, LLMs can only embed numbers up to 520.
+    </p>
+    <figure>
+      <img src="./figs/animated_fig2.gif" alt="Project animation" class="img-fluid">
+    <!-- <figcaption>
+      (a) Extract all numbers from the input. <br>
+      (b) Use FNE to map each number to its embedding; the first two entries represent 18 mod 10, the next two 18 mod 100. <br>
+      (c) Pad FNE with zeros, add it to word embeddings, and feed into the model. <br>
+      (d) For each digit, take two entries from the last hidden state and find the closest number. -->
+    <!-- </figcaption> -->
+  </figure>
+    <!-- <p> However, due to the limitation of tokenization, LLMs can only embed numbers up to 520.
+    </p>
     <ul>
-      <li>More precise number representation</li>
-      <li>Faster computation due to fewer model parameters</li>
-      <li>Better generalization across different numerical values</li>
-    </ul>
+      <li>Numerical representations can be efficiently encoded without explicit tokenization</li>
+      <li>Pre-trained models leverage these features for improved arithmetic performance</li>
+      <li>Generalization across different numerical values emerges naturally</li>
+    </ul> -->
   </section>
 
-  <section id="empirical-results" class="section">
-    <h2>Empirical Results</h2>
-    <p>Our experiments compare FNE against traditional tokenization-based approaches across multiple numerical reasoning tasks.</p>
-    <ul>
-      <li>Decimal addition: XX% improvement in accuracy</li>
-      <li>Integer addition: YY% speed-up in inference</li>
-      <li>Multiplication and subtraction: ZZ% reduction in error rate</li>
-    </ul>
-    <p>For detailed benchmarks, please refer to our <a href="#resources">Resources</a> section.</p>
-  </section>
+<!-- 
 
   <section id="resources" class="section">
     <h2>Resources</h2>
@@ -127,18 +164,27 @@
       <li><a href="#">Source Code (GitHub)</a></li>
       <li><a href="#">Demo or Colab Notebook</a></li>
     </ul>
-  </section>
+  </section> -->
 
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>For questions or contributions, reach out at <a href="mailto:your-email@example.com">your-email@example.com</a>.</p>
+  <section id="how-to-cite" class="section">
+    <h2>How to Cite</h2>
+    <hr>
+    <p>If you found this project useful, please cite our work as follows:</p>
+    <pre>
+      @article{zhou2024fne,
+        title={FNE: Precise Single-Token Number Embeddings via Fourier Features},
+        author={Tianyi Zhou, Deqing Fu, Mahdi Soltanolkotabi, Robin Jia, Vatsal Sharan},
+        journal={arXiv preprint arXiv:???},
+        year={2024},
+        url={???}
+      }
+    </pre>
   </section>
 </div>
 
 <footer>
-  <p>&copy; 2025 Your Name or Organization</p>
+  <p>&copy; USC</p>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </body>
 </html>
